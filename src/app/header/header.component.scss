@@ -3,14 +3,18 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: var(--background-header);
-    color: var(--color-header);
+    background-color: var(--background-header-footer);
+    color: var(--color-header-footer);
 
     .header-link-container {
 
         .header-link {
             all: unset;
             margin: 10px;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
 }

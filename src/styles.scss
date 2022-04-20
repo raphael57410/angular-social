@@ -2,8 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400;1,500&family=Slabo+27px&display=swap');
 
 :root {
-    --background-header: black;
-    --color-header: white;
+    font-size: 15pt;
+    --background-header-footer: black;
+    --background-main: grey;
+
+    --color-header-footer: white;
+
+    --color-btn: #53609c;
+
+    --box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    --border-radius: 30px;
 }
 
 * {
@@ -11,4 +20,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Slabo 27px', serif;
+}
+
+html {
+    min-height: 100vh;
 }
