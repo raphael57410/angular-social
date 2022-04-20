@@ -1,1 +1,11 @@
-<p>register works!</p>
+<div class="register-container">
+    <form class="register-form" action="" [formGroup]="userForm" (ngSubmit)="validForm()">
+        <input class="register-input " type="text" placeholder="E-mail" formControlName="email">
+        <input class="register-input " type="text" placeholder="Pseudo" formControlName="pseudo">
+        <input class="register-input " type="text" placeholder="Mot de passe" formControlName="password">
+        <input class="register-input " type="text" placeholder="Confirmez le mot de passe"
+            formControlName="verifPassword">
+        <button class="register-button">Envoyer</button>
+        <a routerLink="/">Retour</a>
+    </form>
+</div>

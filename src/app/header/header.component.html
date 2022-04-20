@@ -2,6 +2,7 @@
     <h1 class="header-title">Angular Social</h1>
     <nav class="header-link-container">
         <a class="header-link" routerLink="/">connexion</a>
+        <a *ngIf="isConnected" class="header-link" routerLink="utilisateur/liste">liste des utilisateurs</a>
         <a class="header-link" routerLink="inscription">inscription</a>
     </nav>
 </header>
