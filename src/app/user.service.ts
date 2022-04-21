@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable, tap } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import TokenObject from './interface';
+import { JwtTokenService } from './jwt-token.service';
 
 
 
@@ -19,13 +20,28 @@ export class UserService {
     })
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private tokenService: JwtTokenService) { }
 
   loginUser(email: string, password: string): Observable<TokenObject> {
-
     return this.http.post<TokenObject>(this.urlBase + "/connect", { email, password }, this.httpOptions)
       .pipe(
         tap((token: TokenObject) => token),
+        // catchError(error<TokenObject> => error)
+      )
+  }
+
+  getAllUser(): Observable<Array<object>> {
+    const token = this.tokenService.getToken();
+
+    return this.http.get<Array<object>>(this.urlBase, {
+      headers: {
+        "Authorization": 'Bearer' + ' ' + token
+      }
+    })
+      .pipe(
+
+        tap((allUser: Array<object>) => allUser
+        ),
         // catchError(error<TokenObject> => error)
       )
   }

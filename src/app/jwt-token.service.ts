@@ -12,11 +12,12 @@ export class JwtTokenService {
   constructor() { }
 
   getToken() {
-    return this.jwtToken
+    return localStorage.getItem('TOKEN')
   }
   setToken(token: string) {
     if (token) {
       this.jwtToken = token
+      localStorage.setItem('TOKEN', token)
     }
   }
 
