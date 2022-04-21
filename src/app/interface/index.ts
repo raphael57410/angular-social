@@ -19,3 +19,8 @@ export default interface UserObject {
     password: string,
     pseudo: string
 }
+
+export default interface ItemObject {
+    titre: "",
+    contenu: ""
+}

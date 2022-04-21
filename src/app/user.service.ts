@@ -47,6 +47,14 @@ export class UserService {
       )
   }
 
+  addUser<UserObject>(pseudo: string, email: string, password: string, avatar: string) {
+    return this.http.post<UserObject>(this.urlBase, { pseudo, email, password, avatar }, this.httpOptions)
+      .pipe(
+        tap((data: UserObject) => data),
+        // catchError(error<TokenObject> => error)
+      )
+  }
+
   getIsConnected(): boolean {
     return this.isConnected
   }

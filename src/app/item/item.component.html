@@ -1,3 +1,6 @@
 <div class="item-container" *ngFor="let item of items" v>
-    <h1>test d'un article</h1>
+    <h1 class="item-title">{{item.titre}}</h1>
+    <div class="item-text">
+        {{item.contenu}}
+    </div>
 </div>

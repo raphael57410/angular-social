@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from './../item.service';
+import ItemObject from '../interface';
+
 
 
 @Component({
@@ -9,7 +11,7 @@ import { ItemService } from './../item.service';
 })
 export class ItemComponent implements OnInit {
 
-  items?: Array<object>
+  items?: Array<ItemObject>
   constructor(public itemService: ItemService) {
     // fetch all users
     this.itemService.getAllItem().subscribe(data => this.items = data
