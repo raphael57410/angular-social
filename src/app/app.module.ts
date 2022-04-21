@@ -13,6 +13,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { UserComponent } from './user/user.component';
+import { ItemComponent } from './item/item.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UserComponent } from './user/user.component';
     UserListComponent,
     UserDetailComponent,
     ItemListComponent,
-    UserComponent
+    UserComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,10 @@
 .user-container {
     border: 1px solid black;
-    height: 50px;
     margin-top: 10px;
+    text-align: center;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+    }
 }

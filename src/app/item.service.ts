@@ -1,9 +1,37 @@
 import { Injectable } from '@angular/core';
+import { JwtTokenService } from './jwt-token.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, Observable, tap } from 'rxjs';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
 
-  constructor() { }
+  urlBase = "https://reseau.jdedev.fr/api/article"
+  httpOptions = {
+    headers: new HttpHeaders({
+      'content-Type': 'application/json'
+    })
+  }
+
+  constructor(private http: HttpClient, private tokenService: JwtTokenService) { }
+
+  getAllItem(): Observable<Array<object>> {
+    const token = this.tokenService.getToken();
+
+    return this.http.get<Array<object>>(this.urlBase, {
+      headers: {
+        "Authorization": 'Bearer' + ' ' + token
+      }
+    })
+      .pipe(
+
+        tap((allItem: Array<object>) => allItem
+        ),
+        // catchError(error<TokenObject> => error)
+      )
+  }
 }

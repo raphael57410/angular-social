@@ -1,1 +1,6 @@
-<div class="user-container" *ngFor="let user of users">{{user.email}}</div>
+<div class="user-container" *ngFor="let user of users">
+    niveau: {{user.niveau}}
+    <div><img src="{{user.avatar}}" alt="avatar"></div>
+    <h1>{{user.email}}</h1>
+    <div>{{user.pseudo}}</div>
+</div>
