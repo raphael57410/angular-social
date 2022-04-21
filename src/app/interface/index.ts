@@ -10,3 +10,12 @@ export default interface TokenObject {
     niveau: number
     token: string
 }
+
+export default interface UserObject {
+    avatar: string,
+    email: string,
+    id: number,
+    niveau: number,
+    password: string,
+    pseudo: string
+}
