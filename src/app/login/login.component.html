@@ -1,9 +1,9 @@
 <div class="login-container">
-    <form action="" class="login-form">
+    <form action="" class="login-form" [formGroup]="loginForm" (ngSubmit)="ngLogin()">
         <input class="login-input" type="text">
         <input class="login-input" type="text">
         <div class="login-button-container">
-            <button class="login-button">Connexion</button>
+            <button class="login-button" type="submit">Connexion</button>
         </div>
     </form>
 </div>

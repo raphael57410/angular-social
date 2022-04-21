@@ -1,8 +1,10 @@
 <header class="header-container">
     <h1 class="header-title">Angular Social</h1>
     <nav class="header-link-container">
-        <a class="header-link" routerLink="/">connexion</a>
-        <a *ngIf="isConnected" class="header-link" routerLink="utilisateur/liste">liste des utilisateurs</a>
-        <a class="header-link" routerLink="inscription">inscription</a>
+        <a *ngIf="!userService.getIsConnected()" class="header-link" routerLink="/">connexion</a>
+        <a *ngIf="userService.getIsConnected()" class="header-link" routerLink="utilisateur/liste">liste des
+            utilisateurs</a>
+        <a *ngIf="!userService.getIsConnected()" class="header-link" routerLink="inscription">inscription</a>
+        <a *ngIf="userService.getIsConnected()" class="header-link" routerLink="item/liste">Liste des articles</a>
     </nav>
 </header>

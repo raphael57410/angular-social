@@ -22,6 +22,9 @@
     font-family: 'Slabo 27px', serif;
 }
 
-html {
+html,
+body {
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }

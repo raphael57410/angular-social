@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from './../user.service';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +8,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() isConnected?: boolean
-  constructor() { }
+  isConnected?: boolean
+
+  constructor(public userService: UserService) {
+  }
 
   ngOnInit(): void {
   }

@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  isConnected: boolean = true
+  isConnected: boolean = false
 
   title = 'angularSocial';
 }
