@@ -5,6 +5,8 @@ import { RegisterComponent } from './register/register.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { UserProfilComponent } from './user-profil/user-profil.component';
+
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -12,6 +14,7 @@ const routes: Routes = [
 
   // User route
   { path: "utilisateur/liste", component: UserListComponent },
+  { path: "utilisateur/profil", component: UserProfilComponent },
   { path: "utilisateur/detail/:id", component: UserDetailComponent },
 
   // Item route

@@ -26,4 +26,9 @@ export class ItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  deleteItem(id: number) {
+    this.itemService.deleteItem(id).subscribe(data => console.log(data)
+    )
+  }
+
 }

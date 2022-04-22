@@ -24,9 +24,9 @@ export class UserDetailComponent implements OnInit {
 
     // get all item for one user
     let that = this
-    this.userService.getItemById(parseInt(this.route.snapshot.paramMap.get('id')!)).subscribe(data => that.oneItemUser = data)
+    this.userService.getItemById(parseInt(this.route.snapshot.paramMap.get('id')!)).subscribe(data => that.oneItemUser = data.slice(0, 5))
 
-    this.userService.getCommentById(parseInt(this.route.snapshot.paramMap.get('id')!)).subscribe(data => that.oneCommentUser = data)
+    this.userService.getCommentById(parseInt(this.route.snapshot.paramMap.get('id')!)).subscribe(data => that.oneCommentUser = data.slice(0, 5))
 
 
   }

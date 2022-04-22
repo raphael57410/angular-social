@@ -109,6 +109,10 @@ export class UserService {
     return this.isConnected
   }
 
+  getCurrentUser(): TokenObject {
+    return this.currentUser
+  }
+
   setIsConnected(bool: boolean) {
     if (bool) {
       this.isConnected = !this.isConnected;

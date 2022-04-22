@@ -64,4 +64,20 @@ export class ItemService {
         // catchError(error<TokenObject> => error)
       )
   }
+
+  deleteItem(id: number) {
+    const token = this.tokenService.getToken();
+
+    //TODO: ne fonctionne pas!
+    return this.http.delete<ItemObject>(this.urlBase + '/' + id, {
+      headers: {
+        "Authorization": 'Bearer' + ' ' + token
+      }
+    })
+      .pipe(
+        tap((allComment: ItemObject) => allComment
+        ),
+        // catchError(error<TokenObject> => error)
+      )
+  }
 }
