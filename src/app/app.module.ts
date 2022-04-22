@@ -14,6 +14,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { UserComponent } from './user/user.component';
 import { ItemComponent } from './item/item.component';
+import { ItemFormComponent } from './item-form/item-form.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ItemComponent } from './item/item.component';
     UserDetailComponent,
     ItemListComponent,
     UserComponent,
-    ItemComponent
+    ItemComponent,
+    ItemFormComponent
   ],
   imports: [
     BrowserModule,

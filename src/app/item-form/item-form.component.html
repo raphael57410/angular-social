@@ -1,0 +1,7 @@
+<form [formGroup]="itemForm" (ngSubmit)="ngItemForlm()">
+    <input class="item-form-input" type="text" formControlName="titre">
+    <input class="item-form-input" type="text" formControlName="contenu">
+    <div class="item-form-button-container">
+        <button class="item-form-button" type="submit">Ajouter un article</button>
+    </div>
+</form>

@@ -20,7 +20,7 @@ export class UserDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private userService: UserService, public itemService: ItemService) {
 
     // get user by id                                                👇 non null assertion
-    this.userService.getOneUser(this.route.snapshot.paramMap.get('id')!).subscribe(data => this.oneUser = data)
+    this.userService.getOneUser(parseInt(this.route.snapshot.paramMap.get('id')!)).subscribe(data => this.oneUser = data)
 
     // get all item for one user
     let that = this

@@ -1,6 +1,14 @@
-<div class="item-container" *ngFor="let item of items" v>
+<div class="item-container" *ngFor="let item of items">
     <h1 class="item-title">{{item.titre}}</h1>
     <div class="item-text">
         {{item.contenu}}
+        <div class="item-comment-container" *ngFor="let comment of item.comment">
+            <p>{{ comment.contenu}}</p>
+        </div>
     </div>
+
+    <form action="">
+        <input type="text">
+        <button>Ajouter un commentaire</button>
+    </form>
 </div>

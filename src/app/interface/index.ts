@@ -24,10 +24,12 @@ export interface ItemObject {
     id: number,
     titre: string,
     contenu: string
+    comment: CommentObject[]
+    user: UserObject[]
 }
 
 export interface CommentObject {
-    idArt: number,
+    id: number,
     contenu: string,
     id_commentaire: number
 }

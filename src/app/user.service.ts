@@ -54,7 +54,7 @@ export class UserService {
       )
   }
 
-  getOneUser(id: string): Observable<UserObject> {
+  getOneUser(id: number): Observable<UserObject> {
     const token = this.tokenService.getToken();
 
     return this.http.get<UserObject>(this.urlBase + '/' + id, {

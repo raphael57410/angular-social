@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, tap } from 'rxjs';
 import { JwtTokenService } from './jwt-token.service';
-import CommentObject from './interface';
+import { CommentObject } from './interface';
 
 
 
@@ -36,4 +36,5 @@ export class CommentService {
         // catchError(error<TokenObject> => error)
       )
   }
+
 }
