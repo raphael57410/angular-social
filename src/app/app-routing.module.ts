@@ -4,11 +4,17 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { ItemListComponent } from './item-list/item-list.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
   { path: "inscription", component: RegisterComponent },
+
+  // User route
   { path: "utilisateur/liste", component: UserListComponent },
+  { path: "utilisateur/detail/:id", component: UserDetailComponent },
+
+  // Item route
   { path: "item/liste", component: ItemListComponent },
 
 ];

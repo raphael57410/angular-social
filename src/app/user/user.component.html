@@ -1,4 +1,4 @@
-<div class="user-container" *ngFor="let user of users">
+<div class="user-container" *ngFor="let user of users" (click)="detailUser(user.id)">
     niveau: {{user.niveau}}
     <div><img src="{{user.avatar}}" alt="avatar"></div>
     <h1>{{user.email}}</h1>

@@ -8,8 +8,6 @@ import { UserService } from './../user.service';
 })
 export class HeaderComponent implements OnInit {
 
-  isConnected?: boolean
-
   constructor(public userService: UserService) {
   }
 

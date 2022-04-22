@@ -55,6 +55,21 @@ export class UserService {
       )
   }
 
+  getOneUser(id: string): Observable<UserObject> {
+    const token = this.tokenService.getToken();
+
+    return this.http.get<UserObject>(this.urlBase + '/' + id, {
+      headers: {
+        "Authorization": 'Bearer' + ' ' + token
+      }
+    })
+      .pipe(
+        tap((User: UserObject) => User
+        ),
+        // catchError(error<TokenObject> => error)
+      )
+  }
+
   getIsConnected(): boolean {
     return this.isConnected
   }
