@@ -13,7 +13,7 @@ import { UserService } from './../user.service';
 export class ItemComponent implements OnInit {
 
   items?: Array<ItemObject>
-  constructor(public itemService: ItemService, private userService: UserService) {
+  constructor(public itemService: ItemService, public userService: UserService) {
     // fetch all users
     this.itemService.getAllItem().subscribe(data => this.items = data.map(item => {
       // fetch all comment for one article

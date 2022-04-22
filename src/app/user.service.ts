@@ -12,6 +12,7 @@ import { JwtTokenService } from './jwt-token.service';
 export class UserService {
 
   isConnected: boolean = false
+  currentUser!: TokenObject
 
   urlBase = "https://reseau.jdedev.fr/api/user"
   httpOptions = {
@@ -25,7 +26,10 @@ export class UserService {
   loginUser(email: string, password: string): Observable<TokenObject> {
     return this.http.post<TokenObject>(this.urlBase + "/connect", { email, password }, this.httpOptions)
       .pipe(
-        tap((token: TokenObject) => token),
+        tap((token: TokenObject) => {
+          this.currentUser = token;
+          return token
+        }),
         // catchError(error<TokenObject> => error)
       )
   }
