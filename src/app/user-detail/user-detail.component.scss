@@ -1,3 +1,24 @@
 .userDetail-container {
     border: 2px solid black;
+
+    .userDetail-section {
+        display: flex;
+        justify-content: space-around;
+
+        .userDetail-article-container {
+            display: flex;
+            flex-direction: column;
+            border: 2px solid black;
+            margin-top: 10px;
+        }
+
+        .userDetail-comment-container {
+            display: flex;
+            flex-direction: column;
+            border: 2px solid black;
+            margin-top: 10px;
+        }
+    }
+
+
 }

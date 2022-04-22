@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { catchError, Observable, tap } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import TokenObject from './interface';
-import UserObject from './interface';
+import { TokenObject, UserObject, ItemObject, CommentObject } from './interface';
 import { JwtTokenService } from './jwt-token.service';
 
 
@@ -65,6 +64,38 @@ export class UserService {
     })
       .pipe(
         tap((User: UserObject) => User
+        ),
+        // catchError(error<TokenObject> => error)
+      )
+  }
+
+  // Article
+  getCommentById(id: number): Observable<CommentObject[]> {
+    const token = this.tokenService.getToken();
+
+    return this.http.get<CommentObject[]>(this.urlBase + '/' + id + '/comment', {
+      headers: {
+        "Authorization": 'Bearer' + ' ' + token
+      }
+    })
+      .pipe(
+        tap((comment: CommentObject[]) => comment
+        ),
+        // catchError(error<TokenObject> => error)
+      )
+  }
+
+  // Item
+  getItemById(id: number): Observable<ItemObject[]> {
+    const token = this.tokenService.getToken();
+
+    return this.http.get<ItemObject[]>(this.urlBase + '/' + id + '/article', {
+      headers: {
+        "Authorization": 'Bearer' + ' ' + token
+      }
+    })
+      .pipe(
+        tap((item: ItemObject[]) => item
         ),
         // catchError(error<TokenObject> => error)
       )

@@ -1,9 +1,9 @@
-export default interface LoginUser {
+export interface LoginUser {
     email: string,
     password: string
 }
 
-export default interface TokenObject {
+export interface TokenObject {
     id: number,
     email: string
     password: string
@@ -11,7 +11,7 @@ export default interface TokenObject {
     token: string
 }
 
-export default interface UserObject {
+export interface UserObject {
     avatar: string,
     email: string,
     id: number,
@@ -20,7 +20,14 @@ export default interface UserObject {
     pseudo: string
 }
 
-export default interface ItemObject {
-    titre: "",
-    contenu: ""
+export interface ItemObject {
+    id: number,
+    titre: string,
+    contenu: string
+}
+
+export interface CommentObject {
+    idArt: number,
+    contenu: string,
+    id_commentaire: number
 }

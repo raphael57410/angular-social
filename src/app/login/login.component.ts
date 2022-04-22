@@ -3,7 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { UserService } from '../user.service';
 import { JwtTokenService } from '../jwt-token.service';
 import { Router } from '@angular/router';
-import TokenObject from '../interface';
+import { TokenObject } from '../interface';
 import { Observable } from 'rxjs';
 
 

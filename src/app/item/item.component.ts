@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from './../item.service';
-import ItemObject from '../interface';
+import { ItemObject } from '../interface';
 
 
 
@@ -14,8 +14,7 @@ export class ItemComponent implements OnInit {
   items?: Array<ItemObject>
   constructor(public itemService: ItemService) {
     // fetch all users
-    this.itemService.getAllItem().subscribe(data => this.items = data
-    )
+    this.itemService.getAllItem().subscribe(data => this.items = data)
   }
 
   ngOnInit(): void {
