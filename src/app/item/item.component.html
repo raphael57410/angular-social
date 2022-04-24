@@ -14,8 +14,9 @@
     <div class="item-comment-container">
         <p *ngFor="let comment of item.comment" class="item-comment">{{ comment.contenu}}</p>
     </div>
-    <form action="" class="item-comment-form">
-        <input type="text" class="item-comment-text" placeholder="Nouveau commentaire">
-        <button class="item-comment-button">Ajouter un commentaire</button>
+    <form action="" class="item-comment-form" [formGroup]="commentForm">
+        <input type="text" class="item-comment-text" placeholder="Nouveau commentaire" formControlName="contenu">
+        <button class="item-comment-button" (click)="addComment(item.id_article)">Ajouter un
+            commentaire</button>
     </form>
 </div>

@@ -37,4 +37,20 @@ export class CommentService {
       )
   }
 
+  addComment(newComment: any): Observable<CommentObject> {
+    const token = this.tokenService.getToken();
+    console.log(newComment);
+
+    return this.http.post<CommentObject>(this.urlBase, newComment, {
+      headers: {
+        "Authorization": 'Bearer' + ' ' + token
+      }
+    })
+      .pipe(
+
+        tap((allComment: CommentObject) => allComment
+        ),
+        // catchError(error<TokenObject> => error)
+      )
+  }
 }

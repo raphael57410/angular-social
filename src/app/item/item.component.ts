@@ -4,6 +4,7 @@ import { ItemObject } from '../interface';
 import { UserService } from './../user.service';
 import { UserObject, CommentObject } from './../interface/index';
 import { CommentService } from './../comment.service';
+import { FormBuilder } from '@angular/forms';
 
 
 
@@ -17,8 +18,12 @@ export class ItemComponent implements OnInit {
   items?: ItemObject[]
   users?: UserObject[]
 
+  commentForm = this.formBuilder.group({
+    contenu: "",
+  });
 
-  constructor(public itemService: ItemService, public userService: UserService, private commentService: CommentService) {
+
+  constructor(private formBuilder: FormBuilder, public itemService: ItemService, public userService: UserService, private commentService: CommentService) {
     // fetch all users
     this.userService.getAllUser().subscribe(data => this.users = data)
 
@@ -46,6 +51,18 @@ export class ItemComponent implements OnInit {
     this.itemService.deleteItem(id).subscribe(data => {
       console.log(data)
       this.itemService.getAllItem().subscribe(data => this.items = data)
+    })
+  }
+
+  addComment(articleId: number) {
+    const newComment = {
+      contenu: this.commentForm.value.contenu,
+      idArt: articleId
+    }
+
+    this.commentService.addComment(newComment).subscribe(data => {
+      this.commentForm.value.contenu = '',
+        console.log(data)
     })
   }
 
