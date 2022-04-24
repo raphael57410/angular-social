@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     password: ""
   });
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private tokenService: JwtTokenService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
