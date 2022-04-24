@@ -106,7 +106,6 @@ export class UserService {
 
   setIsConnected(bool: boolean) {
     this.isConnected = bool;
-
   }
   // ###
 
