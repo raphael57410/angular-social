@@ -23,6 +23,7 @@ export class UserService {
 
   constructor(private http: HttpClient, private tokenService: JwtTokenService) { }
 
+  // ### USER FETCH ###
   loginUser(email: string, password: string): Observable<TokenObject> {
     return this.http.post<TokenObject>(this.urlBase + "/connect", { email, password }, this.httpOptions)
       .pipe(
@@ -76,33 +77,16 @@ export class UserService {
       )
   }
 
-  // Article
-  getCommentById(id: number): Observable<CommentObject[]> {
+  deleteUser(id: number): Observable<UserObject> {
     const token = this.tokenService.getToken();
 
-    return this.http.get<CommentObject[]>(this.urlBase + '/' + id + '/comment', {
+    return this.http.delete<UserObject>(this.urlBase + '/' + id, {
       headers: {
         "Authorization": 'Bearer' + ' ' + token
       }
     })
       .pipe(
-        tap((comment: CommentObject[]) => comment
-        ),
-        // catchError(error<TokenObject> => error)
-      )
-  }
-
-  // Item
-  getItemById(id: number): Observable<ItemObject[]> {
-    const token = this.tokenService.getToken();
-
-    return this.http.get<ItemObject[]>(this.urlBase + '/' + id + '/article', {
-      headers: {
-        "Authorization": 'Bearer' + ' ' + token
-      }
-    })
-      .pipe(
-        tap((item: ItemObject[]) => item
+        tap((User: UserObject) => User
         ),
         // catchError(error<TokenObject> => error)
       )
@@ -121,8 +105,43 @@ export class UserService {
   }
 
   setIsConnected(bool: boolean) {
-    if (bool) {
-      this.isConnected = !this.isConnected;
-    }
+    this.isConnected = bool;
+
   }
+  // ###
+
+
+  // ### COMMENT FETCH
+  getCommentById(id: number): Observable<CommentObject[]> {
+    const token = this.tokenService.getToken();
+
+    return this.http.get<CommentObject[]>(this.urlBase + '/' + id + '/comment', {
+      headers: {
+        "Authorization": 'Bearer' + ' ' + token
+      }
+    })
+      .pipe(
+        tap((comment: CommentObject[]) => comment
+        ),
+        // catchError(error<TokenObject> => error)
+      )
+  }
+
+  // ### ITEM FETCH
+  getItemById(id: number): Observable<ItemObject[]> {
+    const token = this.tokenService.getToken();
+
+    return this.http.get<ItemObject[]>(this.urlBase + '/' + id + '/article', {
+      headers: {
+        "Authorization": 'Bearer' + ' ' + token
+      }
+    })
+      .pipe(
+        tap((item: ItemObject[]) => item
+        ),
+        // catchError(error<TokenObject> => error)
+      )
+  }
+  // ###
+
 }

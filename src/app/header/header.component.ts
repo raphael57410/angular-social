@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
 
   logOut() {
     localStorage.clear()
+    this.userService.setIsConnected(false)
   }
 
 }

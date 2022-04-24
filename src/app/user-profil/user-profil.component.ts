@@ -18,4 +18,9 @@ export class UserProfilComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  deleteUser(id: number) {
+    this.userService.deleteUser(id).subscribe(data => console.log(data)
+    )
+  }
+
 }
