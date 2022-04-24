@@ -17,6 +17,14 @@
             color: white;
             font-weight: bold;
             padding: 10px;
+
+            .user-img {
+                border: 1px solid white;
+                border-radius: 10px;
+                margin: 5px;
+                padding: 5px;
+                width: 20%;
+            }
         }
 
         .userDetail-section {

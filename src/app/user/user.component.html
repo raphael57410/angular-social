@@ -1,7 +1,9 @@
 <div class="user-container" *ngFor="let user of users" (click)="detailUser(user.id)">
     niveau: {{user.niveau}}
     <div class="user-img-container">
-        <img class="user-img" src="{{user.avatar}}" alt="avatar">
+        <img class="user-img"
+            src="{{user.avatar ? user.avatar : 'https://media.istockphoto.com/photos/cyborg-picture-id153858287?k=20&m=153858287&s=612x612&w=0&h=oaLXYzVP0-fWF0n-tIocZ7DtCe1pT38_HsGkzYaSmZk='}}"
+            alt="avatar">
     </div>
     <h1>{{user.email}}</h1>
     <div>{{user.pseudo}}</div>
