@@ -11,8 +11,8 @@ import { JwtTokenService } from './jwt-token.service';
 })
 export class UserService {
 
-  isConnected: boolean = false
-  currentUser!: TokenObject
+  isConnected: boolean = localStorage.getItem('IS_CONNECTED') ? true : false
+  currentUser: TokenObject = JSON.parse(localStorage.getItem('CURRENT_USER')!)
 
   urlBase = "https://reseau.jdedev.fr/api/user"
   httpOptions = {
@@ -28,6 +28,9 @@ export class UserService {
       .pipe(
         tap((token: TokenObject) => {
           this.currentUser = token;
+          this.tokenService.setToken(token.token)
+          localStorage.setItem('IS_CONNECTED', this.isConnected.toString())
+          localStorage.setItem('CURRENT_USER', JSON.stringify(token))
           return token
         }),
         // catchError(error<TokenObject> => error)
@@ -111,6 +114,10 @@ export class UserService {
 
   getCurrentUser(): TokenObject {
     return this.currentUser
+  }
+
+  setCurrentUser(user: TokenObject) {
+    return this.currentUser = user
   }
 
   setIsConnected(bool: boolean) {

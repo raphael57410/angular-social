@@ -7,6 +7,6 @@
         <a *ngIf="!userService.getIsConnected()" class="header-link" routerLink="inscription">inscription</a>
         <a *ngIf="userService.getIsConnected()" class="header-link" routerLink="item/liste">Liste des articles</a>
         <a *ngIf="userService.getIsConnected()" class="header-link" routerLink="utilisateur/profil">Votre Profil</a>
-
+        <a *ngIf="userService.getIsConnected()" class="header-link" (click)="logOut()" routerLink="/">Deconnexion</a>
     </nav>
 </header>

@@ -1,10 +1,19 @@
 .user-container {
-    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
     margin-top: 10px;
     text-align: center;
+    margin: 5px;
+    width: 45%;
 
     &:hover {
         cursor: pointer;
-        transform: scale(1.1);
+        transform: scale(1.02);
+    }
+
+    .user-img-container {
+        .user-img {
+            width: 50%;
+        }
     }
 }

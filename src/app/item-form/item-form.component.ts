@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ItemService } from './../item.service';
 
-
 @Component({
   selector: 'app-item-form',
   templateUrl: './item-form.component.html',
@@ -22,9 +21,8 @@ export class ItemFormComponent implements OnInit {
   ngItemForlm() {
     this.itemService.addItem(this.itemForm.value.titre, this.itemForm.value.contenu).subscribe(data => {
       console.log(data)
-      //TODO: faire un fetch pour recuperer l'article ajouté !
-      this.itemForm.value.titre = ''
-      this.itemForm.value.contenu = ''
+      this.itemForm.reset()
+      this.itemService.getAllItem().subscribe(data => this.itemService.items = data)
     })
   }
 

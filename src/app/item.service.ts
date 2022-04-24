@@ -12,6 +12,9 @@ import { ItemObject, CommentObject } from './interface';
 })
 export class ItemService {
 
+  items?: ItemObject[]
+
+
   urlBase = "https://reseau.jdedev.fr/api/article"
   httpOptions = {
     headers: new HttpHeaders({
@@ -32,7 +35,7 @@ export class ItemService {
     })
       .pipe(
 
-        tap((allItem: Array<ItemObject>) => allItem
+        tap((allItem: Array<ItemObject>) => this.items = allItem
         ),
         // catchError(error<TokenObject> => error)
       )
@@ -68,7 +71,6 @@ export class ItemService {
   deleteItem(id: number) {
     const token = this.tokenService.getToken();
 
-    //TODO: ne fonctionne pas!
     return this.http.delete<ItemObject>(this.urlBase + '/' + id, {
       headers: {
         "Authorization": 'Bearer' + ' ' + token
@@ -79,5 +81,9 @@ export class ItemService {
         ),
         // catchError(error<TokenObject> => error)
       )
+  }
+
+  getItems() {
+    return this.items
   }
 }

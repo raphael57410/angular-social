@@ -22,6 +22,7 @@ export interface UserObject {
 
 export interface ItemObject {
     id: number,
+    id_article: number,
     titre: string,
     contenu: string
     comment: CommentObject[]

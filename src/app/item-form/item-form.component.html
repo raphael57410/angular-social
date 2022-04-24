@@ -1,6 +1,6 @@
-<form [formGroup]="itemForm" (ngSubmit)="ngItemForlm()">
-    <input class="item-form-input" type="text" formControlName="titre">
-    <input class="item-form-input" type="text" formControlName="contenu">
+<form class="item-form-container" [formGroup]="itemForm" (ngSubmit)="ngItemForlm()">
+    <input class="item-form-input titre" type="text" placeholder="titre" formControlName="titre">
+    <textarea class="item-form-input contenu" type="text" placeholder="contenu" formControlName="contenu"></textarea>
     <div class="item-form-button-container">
         <button class="item-form-button" type="submit">Ajouter un article</button>
     </div>

@@ -1,16 +1,21 @@
-<div class="item-container" *ngFor="let item of items">
-    <button *ngIf="item.id === userService.currentUser.id">Editer</button>
-    <button *ngIf="item.id === userService.currentUser.id" (click)="deleteItem(item.id)">Supprimer</button>
+<div class="item-container" *ngFor="let item of itemService.getItems()">
+    <div class="item-button-container">
+        <button class="item-button-edit" *ngIf="item.id === userService.currentUser.id">Editer</button>
+        <button class="item-button-delete" *ngIf="item.id === userService.currentUser.id"
+            (click)="deleteItem(item.id_article)">Supprimer</button>
+    </div>
     <h1 class="item-title">{{item.titre}}</h1>
     <div class="item-text">
         {{item.contenu}}
-        <div class="item-comment-container" *ngFor="let comment of item.comment">
-            <p>{{ comment.contenu}}</p>
-        </div>
     </div>
-
-    <form action="">
-        <input type="text">
-        <button>Ajouter un commentaire</button>
+    <div *ngFor="let user of users">
+        <p *ngIf="item.id === user.id" class="item-author">Article écrit part: {{user.pseudo}}</p>
+    </div>
+    <div class="item-comment-container">
+        <p *ngFor="let comment of item.comment" class="item-comment">{{ comment.contenu}}</p>
+    </div>
+    <form action="" class="item-comment-form">
+        <input type="text" class="item-comment-text" placeholder="Nouveau commentaire">
+        <button class="item-comment-button">Ajouter un commentaire</button>
     </form>
 </div>

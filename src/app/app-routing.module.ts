@@ -6,6 +6,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserProfilComponent } from './user-profil/user-profil.component';
+import { ConnectGuard } from './connect.guard'
 
 
 const routes: Routes = [
@@ -13,12 +14,12 @@ const routes: Routes = [
   { path: "inscription", component: RegisterComponent },
 
   // User route
-  { path: "utilisateur/liste", component: UserListComponent },
-  { path: "utilisateur/profil", component: UserProfilComponent },
-  { path: "utilisateur/detail/:id", component: UserDetailComponent },
+  { path: "utilisateur/liste", component: UserListComponent, canActivate: [ConnectGuard] },
+  { path: "utilisateur/profil", component: UserProfilComponent, canActivate: [ConnectGuard] },
+  { path: "utilisateur/detail/:id", component: UserDetailComponent, canActivate: [ConnectGuard] },
 
   // Item route
-  { path: "item/liste", component: ItemListComponent },
+  { path: "item/liste", component: ItemListComponent, canActivate: [ConnectGuard] },
 
 ];
 

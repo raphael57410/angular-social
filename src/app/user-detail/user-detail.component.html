@@ -1,20 +1,24 @@
 <div class="userDetail-container">
-    <h1>{{oneUser.pseudo}}</h1>
-    <div>{{oneUser.email}}</div>
-    <div class="userDetail-section">
-        <div>
-            <h3>5 derniers Articles</h3>
-            <div class="userDetail-article-container" *ngFor="let item of oneItemUser">
-                <h4>{{item.titre}}</h4>
-                <p>{{item.contenu}}</p>
-            </div>
-        </div>
-        <div>
-            <h3>5 derniers Commentaires</h3>
-            <div class="userDetail-comment-container" *ngFor="let comment of oneCommentUser">
-                <p>{{comment.contenu}}</p>
-            </div>
+    <div class="userDetail-main">
+        <div class="userDetail-header">
+            <h1>pseudo: {{oneUser.pseudo}}</h1>
+            <div>email: {{oneUser.email}}</div>
         </div>
 
+        <div class="userDetail-section">
+            <div>
+                <h3>5 derniers Articles</h3>
+                <div class="userDetail-article-container" *ngFor="let item of oneItemUser">
+                    <h4>{{item.titre}}</h4>
+                    <p>{{item.contenu}}</p>
+                </div>
+            </div>
+            <div>
+                <h3>5 derniers Commentaires</h3>
+                <div class="userDetail-comment-container" *ngFor="let comment of oneCommentUser">
+                    <p>{{comment.contenu}}</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -1,9 +1,108 @@
 .item-container {
-    border: 2px solid black;
-    margin-top: 10px;
+    box-shadow: var(--box-shadow);
+    padding: 10px;
+    margin: 5px;
+    width: 32%;
+    height: 300px;
+    overflow-y: scroll;
+
+    .item-button-container {
+        display: flex;
+        justify-content: end;
+
+        .item-button-delete {
+            background-color: rgb(232, 42, 42);
+            color: white;
+            border: none;
+            padding: 5px;
+            margin: 5px;
+
+            &:hover {
+                background-color: rgb(226, 115, 115);
+                cursor: pointer;
+            }
+        }
+
+        .item-button-edit {
+            background-color: rgb(168, 168, 33);
+            color: white;
+            border: none;
+            padding: 5px;
+            margin: 5px;
+
+            &:hover {
+                cursor: pointer;
+                background-color: rgb(195, 195, 91);
+
+            }
+        }
+    }
+
+
+
+    .item-title {
+        text-align: center;
+        background-color: black;
+        color: white;
+        border-radius: 10px;
+        font-weight: bold;
+    }
+
+    .item-text {
+        text-align: center;
+    }
+
+    .item-author {
+        text-align: end;
+        padding: 10px;
+        text-decoration: underline;
+    }
 
     .item-comment-container {
-        border: 2px solid red;
-        margin-top: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .item-comment {
+            border: 1px solid lightblue;
+            border-radius: 10px;
+            text-align: center;
+            color: lightblue;
+            margin-top: 5px;
+            width: 30%;
+        }
     }
+
+    .item-comment-form {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 5px;
+        padding: 10px;
+        align-items: center;
+        justify-content: center;
+
+        .item-comment-text {
+            width: 100%;
+        }
+
+        .item-comment-button {
+            margin: 5px;
+            width: 30%;
+            height: 60px;
+            color: white;
+            border-radius: 10px;
+            border: none;
+            background-color: rgb(51, 159, 78);
+
+            &:hover {
+                background-color: rgb(83, 187, 109);
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.item-container::-webkit-scrollbar {
+    display: none;
 }

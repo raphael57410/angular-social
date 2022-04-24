@@ -28,15 +28,12 @@ export class LoginComponent implements OnInit {
 
   ngLogin() {
     const that = this
-    this.userService.loginUser(this.loginForm.value.email, this.loginForm.value.password).subscribe({
-      next(data) {
-        that.tokenService.setToken(data.token)
-      }
+    this.userService.loginUser(this.loginForm.value.email, this.loginForm.value.password).subscribe(data => {
+      if (data) this.router.navigate(['utilisateur/liste'])
     }
     )
 
     this.userService.setIsConnected(true);
-    this.router.navigate(['utilisateur/liste'])
 
   }
 
