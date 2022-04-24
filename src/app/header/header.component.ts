@@ -7,6 +7,7 @@ import { UserService } from './../user.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  activeLink: boolean = true
 
   constructor(public userService: UserService) {
   }
